@@ -19,7 +19,8 @@
         justify-content: center;
         align-items: center;
         position: absolute;
-        bottom: 0;
+        bottom: 0px;
+        left: 0px;
 
             h1 {
                 font-size: 50px;

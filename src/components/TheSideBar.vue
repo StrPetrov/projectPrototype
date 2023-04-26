@@ -1,6 +1,6 @@
 <template>
     <div class="side_bar">
-        <div class="cmp" v-for="(comp, index) in comps" :key="index">
+        <div class="cmp" v-for="(comp, index) in dataStore.componentsArray" :key="index">
             <input class="checkboxes" :id="index" type="checkbox"><label>{{ comp.name }}</label>
         </div>
         <button @click="render">Render elements</button>
@@ -9,9 +9,11 @@
 
 <script>
 
+    import { mapStores } from 'pinia'
+    import { useStore } from '../store'
+
     export default {
         name: 'TheSideBar',
-        props: ['comps'],
         methods: {
             render() {
                 const checkedInputs = []
@@ -21,8 +23,11 @@
                         checkedInputs.push(input.id)
                     }
                 })
-                this.$emit('checkedComponentsIDs', checkedInputs)
+                this.dataStore.ids = checkedInputs
             }
+        },
+        computed: {
+            ...mapStores(useStore)
         }
     }
 </script>
@@ -31,6 +36,7 @@
     .side_bar {
         height: 100%;
         background-color: grey;
+        padding-bottom: 200px;
 
         .cmp {
             padding: 10px;
