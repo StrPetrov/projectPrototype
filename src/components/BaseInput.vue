@@ -4,6 +4,7 @@
         v-for="index in dataProps.amount"
         :type="dataProps.inputType"
         :name="dataProps.name"
+        :value="index"
         >
     </div>
 </template>

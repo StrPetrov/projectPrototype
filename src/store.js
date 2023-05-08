@@ -55,7 +55,10 @@ export const useStore = defineStore({
             },
             {
               name: 'Dropdown',
-              type: 'AppDropdown'
+              type: 'AppDropdown',
+              dataProps: {
+                optionsAmount: 3
+              }
             },
             {
               name: 'Show and hide btns',

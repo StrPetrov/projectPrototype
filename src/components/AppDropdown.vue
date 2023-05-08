@@ -2,16 +2,15 @@
     <div>
         <select name="select" id="select">
             <option value="" selected disabled>Choose:</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            <option v-for="index in dataProps.optionsAmount" :value="index">Option {{ index }}</option>
         </select>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'AppDropdown'
+        name: 'AppDropdown',
+        props: ['dataProps']
     }
 </script>
 
